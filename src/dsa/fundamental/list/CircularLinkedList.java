@@ -75,7 +75,7 @@ public class CircularLinkedList<E> {
         } else {
             Node<E> newest = new Node<>(e, tail.getNext());
             tail.setNext(newest);
-        }
+        }//
         size++;
     }
 
