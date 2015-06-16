@@ -1,5 +1,7 @@
 package dsa.fundamental.list;
 
+import java.util.Objects;
+
 /**
  *
  * @author szagoret
@@ -94,4 +96,38 @@ public class SinglyLinkedList<E> {
         }
         return answer;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        SinglyLinkedList other = (SinglyLinkedList) obj; // use nonparameterized type
+        if (size != other.size) {
+            return false;
+        }
+        Node walkA = head; //  traverse the primary list
+        Node walkB = other.head; //  traverse the secondary list
+
+        while (walkA != null) {
+            if (!walkA.getElement().equals(walkB.getElement())) {
+                return false; //mismatch
+            }
+            walkA = walkA.getNext();
+            walkB = walkB.getNext();
+        }
+        return true; // if we reach this, everything marched successfully
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 83 * hash + Objects.hashCode(this.head);
+        hash = 83 * hash + this.size;
+        return hash;
+    }
+
 }
