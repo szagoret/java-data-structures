@@ -90,7 +90,7 @@ public class TicTacToe {
                 }
             }
             if (i < 2) {
-                sb.append("\n-----\n"); //row bowndary
+                sb.append("\n-----\n"); //row boundary
             }
         }
         return sb.toString();
